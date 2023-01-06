@@ -1,0 +1,18 @@
+.footer {
+  background-color: var(--red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.text {
+  font-size: 0.7rem;
+  color: var(--white);
+}
+
+.socialMedia {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem;
+}
