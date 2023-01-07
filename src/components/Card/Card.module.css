@@ -1,0 +1,26 @@
+.card {
+  padding-bottom: 1em;
+  margin-top: 0.5em;
+  width: 202px;
+  background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.imgMovie {
+  width: 100%;
+}
+
+.titleSecundary .favorite {
+  padding: 0 1em;
+}
+
+.titleSecundary {
+  composes: title from "../Title/Title.module.css";
+  font-size: 1rem;
+}
+
+.favorite {
+  width: 25px;
+}
