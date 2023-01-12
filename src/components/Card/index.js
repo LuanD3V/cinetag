@@ -1,14 +1,11 @@
 import Title from "components/Title";
-import { useState } from "react";
+import { useFavoritosContext } from "context/Favoritos";
 import styles from "./Card.module.css";
 const Card = ({ capa, titulo, link, id }) => {
-  const [favorite, setFavorite] = useState("favorite_outline");
+  const { favorito, addFavorito } = useFavoritosContext();
 
-  const selectedFavorite = () => {
-    favorite === "favorite"
-      ? setFavorite("favorite_outline")
-      : setFavorite("favorite");
-  };
+  const verifyFavorito = favorito.some((fav) => fav.id === id);
+  const icon = !verifyFavorito ? "favorite_outline" : "favorite";
 
   return (
     <div className={styles.card}>
@@ -16,8 +13,13 @@ const Card = ({ capa, titulo, link, id }) => {
         <img src={capa} alt={titulo} className={styles.imgMovie} />
       </a>
       <Title tagName={"h2"}>{titulo}</Title>
-      <button onClick={selectedFavorite} className={styles.favorite}>
-        <img src={`img/${favorite}.svg`} alt="Favoritar Filme" />
+      <button
+        onClick={() => {
+          addFavorito({ id, titulo, capa });
+        }}
+        className={styles.favorite}
+      >
+        <img src={`img/${icon}.svg`} alt="Favoritar Filme" />
       </button>
     </div>
   );
