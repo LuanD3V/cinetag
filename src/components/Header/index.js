@@ -9,7 +9,7 @@ const Header = () => {
     },
     {
       nome: "Favoritos",
-      url: "./Favoritos",
+      url: "./favoritos",
     },
   ];
   return (
