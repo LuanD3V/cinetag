@@ -1,7 +1,7 @@
 import Title from "components/Title";
 import { useFavoritosContext } from "context/Favoritos";
 import styles from "./Card.module.css";
-const Card = ({ capa, titulo, link, id }) => {
+const Card = ({ capa, titulo, id }) => {
   const { favorito, addFavorito } = useFavoritosContext();
 
   const verifyFavorito = favorito.some((fav) => fav.id === id);
@@ -9,7 +9,7 @@ const Card = ({ capa, titulo, link, id }) => {
 
   return (
     <div className={styles.card}>
-      <a href={link}>
+      <a href={`/${id}`}>
         <img src={capa} alt={titulo} className={styles.imgMovie} />
       </a>
       <Title tagName={"h2"}>{titulo}</Title>
